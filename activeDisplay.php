@@ -20,7 +20,7 @@ $fetchResult = mysqli_query($conn,$query_);
 </style>
 
 
-<head><title>Service Display</title></head>
+<head><title>Employee Display</title></head>
 
 <body>
 

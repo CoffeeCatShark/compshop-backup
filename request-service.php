@@ -27,8 +27,17 @@ $sql = "SELECT * FROM service_table where service_index='$index'";
 <label>Insert Name: </label>
 <input type="text" name="fllname"><br>
 
-<label>Insert Time: </label>
-<input type="time" name="time"><br>
+<label>Insert Time: </label><br>
+<label>12:00 PM <input type="radio" name="time" value="12:00:00"></label><br>
+<label>12:30 PM <input type="radio" name="time" value="12:30:00"></label><br>
+<label>1:00 PM <input type="radio" name="time" value="13:00:00"></label><br>
+<label>1:30 PM <input type="radio" name="time" value="13:30:00"></label><br>
+<label>2:00 PM <input type="radio" name="time" value="14:00:00"></label><br>
+<label>2:30 PM <input type="radio" name="time" value="14:30:00"></label><br>
+<label>3:00 PM <input type="radio" name="time" value="15:00:00"></label><br>
+<label>3:30 PM <input type="radio" name="time" value="15:30:00"></label><br>
+<label>4:00 PM <input type="radio" name="time" value="16:00:00"></label><br>
+<label>4:30 PM <input type="radio" name="time" value="16:30:00"></label><br>
 
 <label>Service Type: </label>
 <input readonly type="text" name="service_type" value="<?php echo $type?>"><br>
