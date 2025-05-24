@@ -42,25 +42,40 @@ $name = $_POST['fllname'];
 $time = $_POST['time'];
 $type = $_POST['service_type'];
 $filename = $_FILES["file"]["name"];
-
-
-$sql = "SELECT * FROM service_table WHERE Service_index='$index' ORDER BY Service_Index";
+$id = 0;
+$sql = "SELECT * FROM service_table ORDER BY service_Index";
 $result = $conn->query($sql);
 
-if($result->num_rows > 0) 
+    if($result->num_rows > 0) 
     {
         while($row = $result->fetch_assoc())
         {
-             $id = $row['service_index'];
              $type = $row['service_type'];	
         }
     }
 
-$id = $index + 1;
+             
+
+$sql = "SELECT * FROM request_table ORDER BY request_Index";
+$result = $conn->query($sql);
+
+    if($result->num_rows > 0) 
+    {
+        while($row = $result->fetch_assoc())
+        {
+             $id = $row['request_index'];
+        }
+    }
+
 
   $conn->query("INSERT INTO `request_table` SET  `request_id` = '$id',`customer_name` = '$name',
     `timestamp` = '$time', `service_type` = '$type' ,`file_upload` = '$target_file'");
     echo "                  Service Added Successfully.";
+
+
+    $conn->query("INSERT INTO `active_table` SET  `request_id` = '$id'");
+    echo "                  Service Added Successfully.";
+
 
 ?>
 
